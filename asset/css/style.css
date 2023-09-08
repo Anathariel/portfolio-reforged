@@ -1,0 +1,545 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  line-height: 1.6;
+  color: #f8f8f8;
+  background-color: #292727;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+a,
+p,
+label,
+legend,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  list-style: none;
+  text-decoration: none;
+  font-family: "Lora";
+}
+
+main {
+  margin-top: 100px;
+}
+
+header {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100vw;
+  background-color: #292727;
+}
+header > div.logo {
+  width: 100px;
+  height: auto;
+  margin: 1rem;
+}
+header > nav {
+  width: 80vw;
+}
+header > nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+}
+header > nav > ul > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  margin: 0 1rem;
+}
+header > nav > ul > li::before, header > nav > ul > li::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+header > nav > ul > li::before {
+  height: 100%;
+  width: 0;
+  right: 0;
+  border-top: 2px solid #f8f8f8;
+  border-bottom: 2px solid #f8f8f8;
+  transition: all 500ms cubic-bezier(0.075, 0.81, 0.165, 1);
+}
+header > nav > ul > li::after {
+  background-color: transparent;
+  height: calc(100% - 4px);
+  width: 0;
+  left: 0;
+  transition: all 1.5s cubic-bezier(0.075, 0.81, 0.165, 1);
+}
+header > nav > ul > li:hover::before {
+  width: 100%;
+}
+header > nav > ul > li:hover::after {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+}
+header > nav > ul > li:hover > a {
+  color: #292727;
+}
+header > nav > ul > li > a {
+  z-index: 100;
+  color: #D8CBC4;
+  font-family: "Fleur";
+  font-size: 2rem;
+}
+@media (max-width: 770px) {
+  header > nav > ul > li > a {
+    font-size: 1.5rem;
+  }
+}
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  box-shadow: rgba(134, 234, 231, 0.5843137255) 0px 3px 5px;
+  z-index: -1;
+}
+header > div.burger-menu {
+  display: none;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 635px) {
+  header > div.logo {
+    width: 80px;
+  }
+  header > nav.nav-menu {
+    display: none;
+  }
+  header > div.burger-menu {
+    display: block;
+    margin-left: 1rem;
+    position: absolute;
+    right: 5%;
+  }
+  header .nav-menu.active {
+    z-index: 9999;
+    display: block;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: #292727;
+  }
+  header .nav-menu.active > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+    margin: 1rem;
+    height: 100%;
+  }
+  header .nav-menu.active > ul > li > a {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+}
+
+main#homepage {
+  margin: 0;
+}
+main#homepage > div.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 100px);
+}
+main#homepage > div.content > .content-text {
+  z-index: 99;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background: url("../media/mainMoonPhase.svg") center center/contain no-repeat;
+  background-color: rgba(134, 234, 231, 0.3137254902);
+}
+main#homepage > div.content > .content-text > h1,
+main#homepage > div.content > .content-text h2 {
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  text-align: center;
+  font-family: "UncialAntiqua";
+  color: #f8f8f8;
+  text-shadow: rgba(134, 234, 231, 0.6470588235) 4px 0 4px;
+}
+main#homepage > div.content > .content-text > div {
+  display: flex;
+}
+main#homepage > div.content > .content-text > div > a > img {
+  height: 60px;
+  width: auto;
+  margin: 1rem;
+}
+main#homepage > div.content > .content-text > div > a > img:hover {
+  transform: scale(1.1);
+}
+
+main#aboutMe {
+  text-align: center;
+  color: #f8f8f8;
+  text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
+}
+main#aboutMe > section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main#aboutMe > section > div.bio-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  min-height: 600px;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding: 2rem;
+  background: url(../media/aboutme/holdMoonPhase.svg) center center/80% no-repeat;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control {
+  margin: 1rem auto 2rem;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  color: #D8CBC4;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset {
+  border: none;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > legend {
+  font-family: "Lora";
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  color: #f8f8f8;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options > div.bio-option {
+  display: flex;
+  flex-direction: column;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options > div.bio-option > input[type=radio] {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #86eae7;
+  border-radius: 50%;
+  outline: none;
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px #86eae7;
+  margin: 0.5rem;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options > div.bio-option > input[type=radio]:checked {
+  background-color: #86eae7;
+  border: none;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options > div.bio-option > label.bio-label {
+  display: flex;
+  gap: 1rem;
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options > div.bio-option > label.bio-label > span.bio-label-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  pointer-events: none;
+  text-shadow: none;
+  font-family: "Lora-bold";
+}
+main#aboutMe > section > div.bio-container > div.bio-control-container > form.bio-length-control > fieldset.bio-fieldset > div.bio-length-options > div.bio-option > label.bio-label .hidden {
+  color: transparent;
+}
+main#aboutMe > section > div.bio-container > p.bio {
+  position: absolute;
+  top: 35%;
+  width: 70%;
+  font-size: 1rem;
+  font-variant: small-caps;
+  letter-spacing: 0.1rem;
+}
+main#aboutMe > section > figure {
+  width: 40%;
+}
+main#aboutMe > section > figure > img {
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+main#aboutMe > section > figure > figcaption {
+  margin: 0.5rem;
+}
+main#aboutMe > section > figure > figcaption > a > img {
+  height: 50px;
+  width: auto;
+  margin: 0.5rem;
+}
+main#aboutMe > section > figure > figcaption > a > img:hover {
+  transform: scale(1.2);
+}
+main#aboutMe > section#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 5rem;
+  text-align: center;
+}
+main#aboutMe > section#skills #skillsRecap,
+main#aboutMe > section#skills #toolsRecap {
+  border: 1px solid #f8f8f8;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+main#aboutMe > section#skills #skillsRecap {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.2rem;
+  font-size: 1.8rem;
+  text-align: left;
+  max-width: 300px;
+}
+main#aboutMe > section#skills #skillsRecap .skills-fieldset {
+  border: 0;
+}
+main#aboutMe > section#skills #skillsRecap .skills-legend {
+  pointer-events: none;
+}
+main#aboutMe > section#skills #skillsRecap .skill-input {
+  cursor: pointer;
+}
+main#aboutMe > section#skills #skillsRecap input[type=radio] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #f8f8f8;
+  border-radius: 50%;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+main#aboutMe > section#skills #skillsRecap input[type=radio]:checked {
+  background-color: #f8f8f8;
+  border: none;
+}
+main#aboutMe > section#skills #toolsRecap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+}
+main#aboutMe > section#skills #skillsdetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 3rem;
+  max-width: 1200px;
+  font-variant: small-caps;
+  letter-spacing: 0.1rem;
+}
+main#aboutMe > section#skills #skillsdetails .skillsR {
+  font-size: 1.5rem;
+}
+
+main#projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main#projects > #projectsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 200px;
+  padding: 2rem;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 0.5rem;
+}
+main#projects > #projectsList:before, main#projects > #projectsList:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+}
+main#projects > #projectsList:before {
+  grid-row: 1/2;
+  border-right: none;
+  border-bottom: none;
+}
+main#projects > #projectsList:after {
+  grid-row: 1/span 2;
+  border-left: none;
+}
+main#projects > #projectsList > form > fieldset.project-fieldset {
+  border: 0;
+}
+main#projects > #projectsList > form > fieldset.project-fieldset > legend.project-legend {
+  margin: 1rem;
+  font-size: 2rem;
+  font-family: "UncialAntiqua";
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  text-decoration: underline;
+}
+main#projects > #projectsList > form > fieldset.project-fieldset > div.project-list-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+main#projects > #projectsList > form > fieldset.project-fieldset span.project-label-text {
+  letter-spacing: 0.1rem;
+  text-align: center;
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
+main#projects > #projectsList input[type=radio] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #f8f8f8;
+  border-radius: 50%;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+main#projects > #projectsList input[type=radio]:checked {
+  background-color: #D8CBC4;
+  border: none;
+}
+main#projects > div#projects-checked {
+  max-width: 1400px;
+  text-align: center;
+  color: #f8f8f8;
+}
+main#projects > div#projects-checked h2 {
+  font-size: 3.5rem;
+  letter-spacing: 0.1rem;
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
+main#projects > div#projects-checked p {
+  letter-spacing: 0.1rem;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  margin: 1rem;
+  max-width: 1000px;
+}
+main#projects > div#projects-checked figure {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+main#projects > div#projects-checked figure img {
+  width: 500px;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+footer {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100vw;
+  margin-top: auto;
+  background-color: #292727;
+}
+footer > figure {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+footer > figure > img {
+  width: auto;
+  height: 100px;
+}
+footer > figure > img.logo {
+  height: 80px;
+  width: auto;
+}
+footer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  box-shadow: rgba(134, 234, 231, 0.5843137255) 0px -3px 5px;
+  z-index: -1;
+}/*# sourceMappingURL=style.css.map */
