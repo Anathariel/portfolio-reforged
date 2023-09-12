@@ -135,8 +135,8 @@
             <div class="skillsR">
                 <template id="skillsR">
                     #document-fragment
-                    <p data-name="front"> html ✧ css / scss ✧ js ✧ bootstrap</p>
-                    <p data-name="back"> php ✧ sql ✧ mysql ✧ python ✧ symphony </p>
+                    <p data-name="front"> html ✧ css / scss ✧ js / Vue.js ✧ bootstrap</p>
+                    <p data-name="back"> php ✧ sql ✧ mysql ✧ python ✧ symphony ✧ Rest API </p>
                 </template>
                 <p class="skillsRecap"></p>
             </div>
